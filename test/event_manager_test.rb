@@ -2,7 +2,7 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/event_manager'
 
-class EventManagerTest < Minitest::Unit::TestCase
+class EventManagerTest < Minitest::Test
 
   def test_it_exists
     event_manager = EventManager.new
