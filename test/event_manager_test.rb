@@ -6,7 +6,7 @@ class EventManagerTest < Minitest::Test
 
   def test_it_exists
     event_manager = EventManager.new
-    assert_kind_of EventManager, event_manager
+    assert EventManager, event_manager
   end
 
 end
