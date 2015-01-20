@@ -41,4 +41,14 @@ class AttendeeTest < Minitest::Test
     assert_equal "8088675309", attendee.phone_number
   end
 
+  def test_it_cleans_phone_numbers_with_extra_characters
+    attendee = Attendee.new(:phone_number => "808-867.5309")
+    assert_equal "8088675309", attendee.phone_number
+  end
+
+  def test_it_cleans_phone_numbers_with_spaces_and_parentheses
+    attendee = Attendee.new(:phone_number => "(808) 867 5309")
+    assert_equal "8088675309", attendee.phone_number
+  end
+
 end
