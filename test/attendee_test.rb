@@ -51,4 +51,19 @@ class AttendeeTest < Minitest::Test
     assert_equal "8088675309", attendee.phone_number
   end
 
+  def test_it_removes_leading_one_from_11_digit_number
+    attendee = Attendee.new(:phone_number => "18008885555")
+    assert_equal "8008885555", attendee.phone_number
+  end
+
+  def test_it_throws_away_numbers_that_are_too_long
+    attendee = Attendee.new(:phone_number => "80088855557")
+    assert_equal "0000000000", attendee.phone_number
+  end
+
+  def test_it_throws_away_numbers_that_are_too_short
+    attendee = Attendee.new(:phone_number => "800888555")
+    assert_equal "0000000000", attendee.phone_number
+  end
+
 end
